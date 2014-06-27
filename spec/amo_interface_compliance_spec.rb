@@ -1,6 +1,8 @@
 require 'spec/test/unit'
 require 'active_model/lint'
 
+require 'active_support/core_ext/object/blank'
+
 # This must be kept in sync with active_model/lint tests
 # at least for as long as
 #

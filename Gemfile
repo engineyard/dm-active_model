@@ -5,15 +5,15 @@ source 'http://rubygems.org'
 SOURCE       = ENV.fetch('SOURCE', :git).to_sym
 REPO_POSTFIX = SOURCE == :path ? ''                                : '.git'
 DATAMAPPER   = SOURCE == :path ? Pathname(__FILE__).dirname.parent : 'http://github.com/datamapper'
-DM_VERSION   = '~> 1.1.0'
+DM_VERSION   = '~> 1.2.0'
 
 gem 'activemodel', '~> 3.0', :require => nil
-gem 'dm-core',     DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
+gem 'dm-core',     DM_VERSION#, SOURCE => "#{DATAMAPPER}/dm-core#{REPO_POSTFIX}"
 
 group :development do
 
-  gem 'dm-validations', DM_VERSION, SOURCE => "#{DATAMAPPER}/dm-validations#{REPO_POSTFIX}"
-  gem 'jeweler',        '~> 1.5.2'
+  gem 'dm-validations', DM_VERSION#, SOURCE => "#{DATAMAPPER}/dm-validations#{REPO_POSTFIX}"
+  #gem 'jeweler',        '~> 1.5.2'
   gem 'rake',           '~> 0.8.7'
   gem 'rspec',          '~> 1.3.1'
   gem 'test-unit',      '= 1.2.3'
@@ -39,4 +39,8 @@ group :datamapper do
     gem plugin, DM_VERSION, SOURCE => "#{DATAMAPPER}/#{plugin}#{REPO_POSTFIX}"
   end
 
+end
+
+group :test do
+  gem 'rspec', '~> 1.3.1'
 end
