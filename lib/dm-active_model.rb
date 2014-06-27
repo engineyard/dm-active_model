@@ -10,6 +10,10 @@ module DataMapper
         self
       end
 
+      def new_record?
+        new?
+      end
+
       def persisted?
         saved?
       end
